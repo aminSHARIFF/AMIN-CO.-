@@ -341,6 +341,7 @@ document.head.appendChild(style);
 /* ===========================
    17. CURSOR GLOW EFFECT
    =========================== */
+   if (window.innerWidth > 768) {
 const cursor = document.createElement('div');
 cursor.style.cssText = `
   width: 12px;
@@ -374,7 +375,7 @@ document.addEventListener('mousemove', (e) => {
   cursorRing.style.left = e.clientX - 17 + 'px';
   cursorRing.style.top = e.clientY - 17 + 'px';
 });
-
+   }
 document.addEventListener('mousedown', () => {
   cursor.style.transform = 'scale(2)';
   cursorRing.style.transform = 'scale(0.8)';

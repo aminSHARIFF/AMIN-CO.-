@@ -1710,3 +1710,69 @@ body:not(.light-mode) .hero-bg {
     flex-shrink: 0;
   }
 }
+
+/* ===========================
+   ABOUT MOBILE FIX
+   =========================== */
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr !important;
+    padding: 60px 5% !important;
+    gap: 40px !important;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+
+  .about-text h2 {
+    font-size: 2rem !important;
+  }
+
+  .about-desc {
+    font-size: 0.85rem !important;
+  }
+
+  .timeline-item {
+    padding: 15px 0 !important;
+  }
+
+  .timeline-item .year {
+    font-size: 1rem !important;
+    min-width: 50px !important;
+  }
+}
+
+/* ===========================
+   ADD TO CART MOBILE FIX
+   =========================== */
+@media (max-width: 768px) {
+  .product-overlay {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,0.8) 0%,
+      transparent 100%
+    ) !important;
+    top: auto !important;
+    bottom: 0 !important;
+    height: 60px !important;
+    padding: 0 !important;
+    align-items: flex-end !important;
+  }
+
+  .product-overlay .btn-cart {
+    width: 100% !important;
+    height: 42px !important;
+    font-size: 0.6rem !important;
+    background: var(--gold) !important;
+    color: var(--black) !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  .btn-wishlist {
+    display: none !important;
+  }
+}
