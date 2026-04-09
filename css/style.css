@@ -1776,3 +1776,40 @@ body:not(.light-mode) .hero-bg {
     display: none !important;
   }
 }
+/* ===========================
+   ABOUT PAGE OVERFLOW FIX
+   =========================== */
+@media (max-width: 768px) {
+  .about {
+    overflow-x: hidden !important;
+  }
+
+  .about-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    grid-template-columns: 1fr !important;
+    padding: 60px 5% !important;
+  }
+
+  .about-text,
+  .timeline {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .timeline-item {
+    flex-wrap: wrap !important;
+  }
+
+  .timeline-content {
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+
+  .timeline-content h5,
+  .timeline-content p {
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+}
