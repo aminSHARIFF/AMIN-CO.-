@@ -143,9 +143,11 @@ sortSelect.addEventListener('change', () => {
 const trendingTrack = document.getElementById('trending-track');
 
 if (trendingTrack) {
-  const cards = trendingTrack.innerHTML;
-  // Duplicate cards for seamless infinite scroll
-  trendingTrack.innerHTML = cards + cards;
+  // Only duplicate cards on desktop
+  if (window.innerWidth > 768) {
+    const cards = trendingTrack.innerHTML;
+    trendingTrack.innerHTML = cards + cards;
+  }
 }
 
 /* ===========================
@@ -406,19 +408,32 @@ if (savedTheme === 'light') {
   body.classList.add('light-mode');
   themeToggle.classList.remove('fa-circle-half-stroke');
   themeToggle.classList.add('fa-moon');
+} else {
+  body.classList.remove('light-mode');
+  localStorage.setItem('theme', 'dark');
 }
 
 themeToggle.addEventListener('click', () => {
   body.classList.toggle('light-mode');
 
+  const heroBg = document.querySelector('.hero-bg');
+
   if (body.classList.contains('light-mode')) {
     localStorage.setItem('theme', 'light');
     themeToggle.classList.remove('fa-circle-half-stroke');
     themeToggle.classList.add('fa-moon');
+    if (heroBg) {
+      heroBg.style.opacity = '0.3';
+      heroBg.style.filter = 'grayscale(50%) brightness(0.4)';
+    }
   } else {
     localStorage.setItem('theme', 'dark');
     themeToggle.classList.remove('fa-moon');
     themeToggle.classList.add('fa-circle-half-stroke');
+    if (heroBg) {
+      heroBg.style.opacity = '1';
+      heroBg.style.filter = 'none';
+    }
   }
 });
 

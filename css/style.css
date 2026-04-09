@@ -1590,3 +1590,123 @@ body.light-mode ::-webkit-scrollbar-track { background: #f5f5f5; }
   .product-overlay { flex-direction: column; }
   .btn-wishlist { width: 100%; }
 }
+/* ===========================
+   NAV LINKS DARK MODE FIX
+   =========================== */
+#navbar .nav-links a {
+  color: #ffffff;
+}
+
+#navbar.scrolled .nav-links a {
+  color: #ffffff;
+}
+
+/* Make nav links visible on hero */
+.hero ~ * #navbar .nav-links a {
+  color: #ffffff;
+}
+
+/* Light mode nav fix */
+body.light-mode #navbar .nav-links a {
+  color: #ffffff !important;
+}
+
+body.light-mode #navbar.scrolled .nav-links a {
+  color: #111111 !important;
+}
+/* ===========================
+    HERO FIXES
+   =========================== */
+
+/* Nav links always white on hero */
+.nav-links a {
+  color: #ffffff !important;
+}
+
+/* Nav links black when scrolled in light mode */
+body.light-mode #navbar.scrolled .nav-links a {
+  color: #111111 !important;
+}
+
+/* Hero bg always visible */
+.hero-bg {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Light mode hero bg slightly dimmed */
+body.light-mode .hero-bg {
+  filter: brightness(0.6);
+}
+
+/* Dark mode default — no filter */
+body:not(.light-mode) .hero-bg {
+  filter: brightness(1);
+}
+
+/* ===========================
+   MOBILE ADD TO CART FIX
+   =========================== */
+
+/* On mobile — hide full overlay, show only bottom bar */
+@media (max-width: 768px) {
+  .product-overlay {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    background: transparent;
+    top: auto;
+    bottom: 0;
+    height: auto;
+    padding: 0;
+  }
+
+  .product-overlay .btn-cart {
+    width: 100%;
+    border-radius: 0;
+    padding: 12px;
+    font-size: 0.65rem;
+    opacity: 1;
+    background: var(--gold);
+    color: var(--black);
+  }
+
+  .btn-wishlist {
+    display: none;
+  }
+
+  .product-card:hover .product-overlay,
+  .product-card .product-overlay {
+    opacity: 1;
+    transform: translateY(0);
+    background: transparent;
+  }
+}
+
+/* ===========================
+   TRENDING MOBILE SWIPE FIX
+   =========================== */
+@media (max-width: 768px) {
+  .trending-track-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    cursor: default;
+  }
+
+  .trending-track-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .trending-track {
+    animation: none !important;
+    width: max-content;
+    padding: 10px 5%;
+  }
+
+  .trending-card {
+    width: 220px;
+    flex-shrink: 0;
+  }
+}
