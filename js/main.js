@@ -341,61 +341,61 @@ document.head.appendChild(style);
 /* ===========================
    17. CURSOR GLOW EFFECT
    =========================== */
-   if (window.innerWidth > 768) {
-const cursor = document.createElement('div');
-cursor.style.cssText = `
-  width: 12px;
-  height: 12px;
-  background: var(--gold, #c9a84c);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 99999;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-  mix-blend-mode: difference;
-`;
-document.body.appendChild(cursor);
+if (window.innerWidth > 768) {
+  const cursor = document.createElement('div');
+  cursor.style.cssText = `
+    width: 12px;
+    height: 12px;
+    background: var(--gold, #c9a84c);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 99999;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    mix-blend-mode: difference;
+  `;
+  document.body.appendChild(cursor);
 
-const cursorRing = document.createElement('div');
-cursorRing.style.cssText = `
-  width: 35px;
-  height: 35px;
-  border: 1px solid rgba(201,168,76,0.5);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 99998;
-  transition: all 0.15s ease;
-`;
-document.body.appendChild(cursorRing);
+  const cursorRing = document.createElement('div');
+  cursorRing.style.cssText = `
+    width: 35px;
+    height: 35px;
+    border: 1px solid rgba(201,168,76,0.5);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 99998;
+    transition: all 0.15s ease;
+  `;
+  document.body.appendChild(cursorRing);
 
-document.addEventListener('mousemove', (e) => {
-  cursor.style.left = e.clientX - 6 + 'px';
-  cursor.style.top = e.clientY - 6 + 'px';
-  cursorRing.style.left = e.clientX - 17 + 'px';
-  cursorRing.style.top = e.clientY - 17 + 'px';
-});
-   }
-document.addEventListener('mousedown', () => {
-  cursor.style.transform = 'scale(2)';
-  cursorRing.style.transform = 'scale(0.8)';
-});
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX - 6 + 'px';
+    cursor.style.top = e.clientY - 6 + 'px';
+    cursorRing.style.left = e.clientX - 17 + 'px';
+    cursorRing.style.top = e.clientY - 17 + 'px';
+  });
 
-document.addEventListener('mouseup', () => {
-  cursor.style.transform = 'scale(1)';
-  cursorRing.style.transform = 'scale(1)';
-});
+  document.addEventListener('mousedown', () => {
+    cursor.style.transform = 'scale(2)';
+    cursorRing.style.transform = 'scale(0.8)';
+  });
 
-// Hide cursor when leaving window
-document.addEventListener('mouseleave', () => {
-  cursor.style.opacity = '0';
-  cursorRing.style.opacity = '0';
-});
+  document.addEventListener('mouseup', () => {
+    cursor.style.transform = 'scale(1)';
+    cursorRing.style.transform = 'scale(1)';
+  });
 
-document.addEventListener('mouseenter', () => {
-  cursor.style.opacity = '1';
-  cursorRing.style.opacity = '1';
-});
+  document.addEventListener('mouseleave', () => {
+    cursor.style.opacity = '0';
+    cursorRing.style.opacity = '0';
+  });
+
+  document.addEventListener('mouseenter', () => {
+    cursor.style.opacity = '1';
+    cursorRing.style.opacity = '1';
+  });
+}
 
 /* ===========================
    18. LIGHT / DARK MODE TOGGLE
@@ -467,13 +467,14 @@ if (hero) {
    21. MOBILE OVERLAY CLOSE
    =========================== */
 const mobileOverlay = document.getElementById('mobile-overlay');
+
 if (mobileOverlay) {
   mobileOverlay.addEventListener('click', () => {
     mobileMenu.classList.remove('open');
     mobileOverlay.classList.remove('active');
   });
-}
 
-menuToggle.addEventListener('click', () => {
-  mobileOverlay.classList.toggle('active');
-});
+  menuToggle.addEventListener('click', () => {
+    mobileOverlay.classList.toggle('active');
+  });
+}

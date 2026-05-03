@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="NOIR & CO. — Premium Men's Fashion. Shop the latest in streetwear, formal, casual and ethnic clothing." />
-  <meta name="keywords" content="mens fashion, luxury clothing, streetwear, formal wear, NOIR AND CO" />
+  <meta name="description" content="AMIN & CO. — Premium Men's Fashion. Shop the latest in streetwear, formal, casual and ethnic clothing." />
+  <meta name="keywords" content="mens fashion, luxury clothing, streetwear, formal wear, AMIN AND CO" />
   <title>AMIN & CO. | Premium Men's Fashion</title>
 
   <!-- Google Fonts -->
@@ -44,6 +44,9 @@
   <i class="fa-solid fa-bars" id="menu-toggle"></i>
 </div>
   </nav>
+
+  <!-- Mobile Overlay -->
+  <div class="mobile-overlay" id="mobile-overlay"></div>
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobile-menu">
@@ -95,7 +98,7 @@
     </div>
     <div class="product-slider fade-in">
       <!-- Product cards will go here -->
-      <div class="product-card">
+      <div class="product-card" data-category="oversized" data-price="2500">
         <div class="product-img-wrap">
           <img src="images/cade oversized shirt.jpeg" alt="Product 1" />
           <div class="product-overlay">
@@ -107,7 +110,7 @@
           <p>KES 2,500</p>
         </div>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-category="shirts" data-price="3800">
         <div class="product-img-wrap">
           <img src="images/slim-fit-shirt.jpg" alt="Product 2" />
           <div class="product-overlay">
@@ -119,7 +122,7 @@
           <p>KES 3,800</p>
         </div>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-category="coords" data-price="5200">
         <div class="product-img-wrap">
           <img src="images/cade steetswag.jpeg" alt="Product 3" />
           <div class="product-overlay">
@@ -131,7 +134,7 @@
           <p>KES 5,200</p>
         </div>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-category="ethnic" data-price="4500">
         <div class="product-img-wrap">
           <img src="images/traditional kurta.jpg" alt="Product 4" />
           <div class="product-overlay">
@@ -392,6 +395,59 @@
     </div>
   </section>
 
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section id="contact" class="contact section-padding">
+    <div class="section-header fade-in">
+      <p class="section-tag">Get In Touch</p>
+      <h2>Contact <span>Us</span></h2>
+    </div>
+    <div class="contact-wrapper fade-in">
+      <div class="contact-info">
+        <div class="contact-info-item">
+          <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <h5>Location</h5>
+            <p>Nairobi, Kenya</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div>
+            <h5>Email</h5>
+            <p>hello@aminandco.com</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
+          <div>
+            <h5>WhatsApp</h5>
+            <p>+254 700 000 000</p>
+          </div>
+        </div>
+        <div class="contact-social">
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <form class="contact-form">
+        <div class="form-row">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+        </div>
+        <input type="text" placeholder="Subject" />
+        <textarea rows="5" placeholder="Your Message"></textarea>
+        <button type="submit" class="btn-gold">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Back to Top -->
+  <button id="back-to-top" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
   <!-- ===== FOOTER ===== -->
   <footer id="footer">

@@ -1547,28 +1547,103 @@ body.light-mode ::-webkit-scrollbar-track { background: #f5f5f5; }
    RESPONSIVE — MOBILE
    =========================== */
 @media (max-width: 768px) {
+  /* Navigation */
   .nav-links { display: none; }
   #menu-toggle { display: block; }
   .mobile-menu { display: block; }
+
+  /* Hero */
   .hero-title { font-size: clamp(2.5rem, 12vw, 4rem); letter-spacing: 3px; }
   .hero-btns { flex-direction: column; align-items: center; }
   .hero-badge { display: none; }
+
+  /* Products */
   .product-img-wrap { height: 280px; }
   .product-slider { grid-template-columns: repeat(2, 1fr); }
   .product-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .product-overlay {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%) !important;
+    top: auto !important;
+    bottom: 0 !important;
+    height: 60px !important;
+    padding: 0 !important;
+    align-items: flex-end !important;
+  }
+
+  .product-overlay .btn-cart {
+    width: 100% !important;
+    height: 42px !important;
+    font-size: 0.6rem !important;
+    background: var(--gold) !important;
+    color: var(--black) !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  .btn-wishlist { display: none !important; }
+
+  /* Collections */
   .collection-block { height: 70vh; background-attachment: scroll; }
   .collection-text h2 { font-size: clamp(2.5rem, 10vw, 4rem); }
+
+  /* Stats */
   .stat-divider { display: none; }
   .stats-strip { gap: 10px; }
   .stat-item { min-width: 120px; }
+
+  /* Trending */
+  .trending-track-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    cursor: default;
+  }
+  .trending-track-wrapper::-webkit-scrollbar { display: none; }
+  .trending-track { animation: none !important; width: max-content; padding: 10px 5%; }
+  .trending-card { width: 220px; flex-shrink: 0; }
+
+  /* About */
+  .about { overflow-x: hidden !important; }
+  .about-content {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 60px 5% !important;
+    gap: 40px !important;
+  }
+  .about-text {
+    text-align: center;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+  .about-text h2 { font-size: 2rem !important; }
+  .about-desc { font-size: 0.85rem !important; }
+  .timeline { width: 100% !important; max-width: 100% !important; overflow: hidden !important; }
+  .timeline-item { padding: 15px 0 !important; flex-wrap: wrap !important; }
+  .timeline-item .year { font-size: 1rem !important; min-width: 50px !important; }
+  .timeline-content { flex: 1 !important; min-width: 0 !important; }
+  .timeline-content h5,
+  .timeline-content p { white-space: normal !important; word-break: break-word !important; }
+
+  /* Footer */
   .footer-top { grid-template-columns: 1fr; gap: 40px; padding: 60px 5%; }
   .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+
+  /* Contact */
   .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
   .form-row { grid-template-columns: 1fr; }
+
+  /* Shop */
   .sort-bar { flex-direction: column; gap: 10px; align-items: flex-start; }
   .filter-bar { gap: 8px; }
   .filter-btn { padding: 6px 14px; font-size: 0.6rem; }
-  .about-content { grid-template-columns: 1fr; }
+
+  /* Misc */
   #back-to-top { bottom: 20px; right: 20px; }
 }
 
@@ -1587,229 +1662,24 @@ body.light-mode ::-webkit-scrollbar-track { background: #f5f5f5; }
   .newsletter-form .btn-gold { width: 100%; text-align: center; }
   .trending-card { width: 220px; }
   .trending-card .product-img-wrap { height: 260px; }
-  .product-overlay { flex-direction: column; }
-  .btn-wishlist { width: 100%; }
 }
+
 /* ===========================
-   NAV LINKS DARK MODE FIX
+   NAV & HERO FIXES
    =========================== */
-#navbar .nav-links a {
-  color: #ffffff;
-}
-
-#navbar.scrolled .nav-links a {
-  color: #ffffff;
-}
-
-/* Make nav links visible on hero */
-.hero ~ * #navbar .nav-links a {
-  color: #ffffff;
-}
-
-/* Light mode nav fix */
-body.light-mode #navbar .nav-links a {
-  color: #ffffff !important;
-}
-
-body.light-mode #navbar.scrolled .nav-links a {
-  color: #111111 !important;
-}
-/* ===========================
-    HERO FIXES
-   =========================== */
-
-/* Nav links always white on hero */
 .nav-links a {
   color: #ffffff !important;
 }
 
-/* Nav links black when scrolled in light mode */
 body.light-mode #navbar.scrolled .nav-links a {
   color: #111111 !important;
 }
 
-/* Hero bg always visible */
 .hero-bg {
   opacity: 1 !important;
   visibility: visible !important;
   display: block !important;
 }
 
-/* Light mode hero bg slightly dimmed */
-body.light-mode .hero-bg {
-  filter: brightness(0.6);
-}
-
-/* Dark mode default — no filter */
-body:not(.light-mode) .hero-bg {
-  filter: brightness(1);
-}
-
-/* ===========================
-   MOBILE ADD TO CART FIX
-   =========================== */
-
-/* On mobile — hide full overlay, show only bottom bar */
-@media (max-width: 768px) {
-  .product-overlay {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    background: transparent;
-    top: auto;
-    bottom: 0;
-    height: auto;
-    padding: 0;
-  }
-
-  .product-overlay .btn-cart {
-    width: 100%;
-    border-radius: 0;
-    padding: 12px;
-    font-size: 0.65rem;
-    opacity: 1;
-    background: var(--gold);
-    color: var(--black);
-  }
-
-  .btn-wishlist {
-    display: none;
-  }
-
-  .product-card:hover .product-overlay,
-  .product-card .product-overlay {
-    opacity: 1;
-    transform: translateY(0);
-    background: transparent;
-  }
-}
-
-/* ===========================
-   TRENDING MOBILE SWIPE FIX
-   =========================== */
-@media (max-width: 768px) {
-  .trending-track-wrapper {
-    overflow-x: scroll;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    cursor: default;
-  }
-
-  .trending-track-wrapper::-webkit-scrollbar {
-    display: none;
-  }
-
-  .trending-track {
-    animation: none !important;
-    width: max-content;
-    padding: 10px 5%;
-  }
-
-  .trending-card {
-    width: 220px;
-    flex-shrink: 0;
-  }
-}
-
-/* ===========================
-   ABOUT MOBILE FIX
-   =========================== */
-@media (max-width: 768px) {
-  .about-content {
-    grid-template-columns: 1fr !important;
-    padding: 60px 5% !important;
-    gap: 40px !important;
-  }
-
-  .about-text {
-    text-align: center;
-  }
-
-  .about-text h2 {
-    font-size: 2rem !important;
-  }
-
-  .about-desc {
-    font-size: 0.85rem !important;
-  }
-
-  .timeline-item {
-    padding: 15px 0 !important;
-  }
-
-  .timeline-item .year {
-    font-size: 1rem !important;
-    min-width: 50px !important;
-  }
-}
-
-/* ===========================
-   ADD TO CART MOBILE FIX
-   =========================== */
-@media (max-width: 768px) {
-  .product-overlay {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    background: linear-gradient(
-      to top,
-      rgba(0,0,0,0.8) 0%,
-      transparent 100%
-    ) !important;
-    top: auto !important;
-    bottom: 0 !important;
-    height: 60px !important;
-    padding: 0 !important;
-    align-items: flex-end !important;
-  }
-
-  .product-overlay .btn-cart {
-    width: 100% !important;
-    height: 42px !important;
-    font-size: 0.6rem !important;
-    background: var(--gold) !important;
-    color: var(--black) !important;
-    border: none !important;
-    padding: 0 !important;
-  }
-
-  .btn-wishlist {
-    display: none !important;
-  }
-}
-/* ===========================
-   ABOUT PAGE OVERFLOW FIX
-   =========================== */
-@media (max-width: 768px) {
-  .about {
-    overflow-x: hidden !important;
-  }
-
-  .about-content {
-    width: 100% !important;
-    max-width: 100% !important;
-    grid-template-columns: 1fr !important;
-    padding: 60px 5% !important;
-  }
-
-  .about-text,
-  .timeline {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow: hidden !important;
-  }
-
-  .timeline-item {
-    flex-wrap: wrap !important;
-  }
-
-  .timeline-content {
-    flex: 1 !important;
-    min-width: 0 !important;
-  }
-
-  .timeline-content h5,
-  .timeline-content p {
-    white-space: normal !important;
-    word-break: break-word !important;
-  }
-}
+body.light-mode .hero-bg { filter: brightness(0.6); }
+body:not(.light-mode) .hero-bg { filter: brightness(1); }
